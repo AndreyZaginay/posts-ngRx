@@ -1,0 +1,19 @@
+:host{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.posts {
+    width: 30%;
+}
+.post {
+    border: 1px solid grey;
+    cursor: pointer;
+    border-radius: 5px;
+    transition-duration: 1s;
+}
+
+.post:hover {
+    background-color: rgb(103, 103, 174);
+    color: white;
+} 

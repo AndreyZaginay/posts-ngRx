@@ -1,9 +1,10 @@
-import { selectPost } from './../store/selectors/posts.selectors';
-import { Subject, switchMap, takeUntil, Observable, tap } from 'rxjs';
-import { Post, PostsState } from './../models/post';
+import { Subject, switchMap, takeUntil, Observable } from 'rxjs';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { selectPost } from './../store/selectors/posts.selectors';
+import { Post } from './../models/post';
 
 @Component({
   selector: 'app-post',
