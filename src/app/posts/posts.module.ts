@@ -1,12 +1,12 @@
-import { UserModule } from './user/user.module';
-import { UserComponent } from './user/user.component';
-import { PostsService } from './services/posts.service';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
+import { UserModule } from './user/user.module';
+import { UserComponent } from './user/user.component';
+import { PostsService } from './services/posts.service';
 import { PostsComponent } from './posts.component';
 import { PostComponent } from './post/post.component';
 import { postsFeature } from './store/reducers/posts.reducers';
@@ -20,11 +20,11 @@ const routes: Routes = [
    component: PostsComponent,
   },
   {
-    path: 'postId/:id',
+    path: 'postId/:postId',
     component: PostComponent
   },
   {
-    path: 'userId/:id',
+    path: 'postId/:postId/userId/:userId',
     component: UserComponent
   }
 ]

@@ -31,9 +31,17 @@ export class UserComponent implements OnInit {
     this.getUser();
   }
 
+  public backToPost(): void {
+    this.route.paramMap.pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(params => {
+      this.router.navigate(['posts','postId',params.get('postId')])
+    })
+  }
+
   private getUser(): void {
     this.route.params.pipe(
-      switchMap((params) => this.store.select(selectUser(+params['id']))),
+      switchMap((params) => this.store.select(selectUser(+params['userId']))),
       takeUntil(this.destroy$),
     ).subscribe(user => {
       this.user = user;
