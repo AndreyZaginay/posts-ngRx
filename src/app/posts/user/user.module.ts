@@ -15,7 +15,7 @@ import { UsersService } from './services/users.service';
 import { usersFeature } from './store/reducers/users.reducers';
 import { UsersEffects } from './store/effects/users.effects';
 import { UserComponent } from './user.component';
-// import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module'
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { UserComponent } from './user.component';
     ],
     imports: [
       CommonModule,
-      // SharedModule,
+      SharedModule,
       HttpClientModule,
       MatFormFieldModule,
       MatButtonModule,

@@ -12,6 +12,7 @@ import { PostComponent } from './post/post.component';
 import { postsFeature } from './store/reducers/posts.reducers';
 import { PostsEffects } from './store/effects/posts.effects';
 import { CommentsModule } from './comments/comments.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
     providers: [PostsService],
     imports: [
         CommonModule,
+        SharedModule,
         RouterModule.forChild(routes),
         StoreModule.forFeature(postsFeature),
         EffectsModule.forFeature([PostsEffects]),

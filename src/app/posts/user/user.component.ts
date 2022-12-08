@@ -1,8 +1,9 @@
+import { selectIsLoading } from './../store/selectors/posts.selectors';
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Subject, takeUntil, switchMap } from 'rxjs';
+import { Subject, takeUntil, switchMap, Observable } from 'rxjs';
 
 import { UsersState } from '././models/user';
 import * as UsersActions from './store/actions/users.actions';
@@ -22,7 +23,7 @@ export class UserComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private readonly route: ActivatedRoute,
-    private readonly store: Store<UsersState>,
+    private readonly store: Store,
   ) { }
 
   ngOnInit(): void {

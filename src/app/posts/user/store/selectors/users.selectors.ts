@@ -1,11 +1,10 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { UsersState } from '../../models/user';
+import { usersFeature } from '../reducers/users.reducers'
 
-export const featureSelector = createFeatureSelector<UsersState>('users');
 
 export const selectUsersList = createSelector(
-    featureSelector,
-    state => state.userList
+  usersFeature.selectUserList,
+  userList => userList
 );
 
 export const selectUser = (userId: number) => {
@@ -13,6 +12,7 @@ export const selectUser = (userId: number) => {
 }
 
 export const selectIsloading = createSelector(
-  featureSelector,
-  state => state.isLoading
+  usersFeature.selectIsLoading,
+  isLoading => isLoading
 )
+

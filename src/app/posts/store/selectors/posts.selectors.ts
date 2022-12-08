@@ -11,3 +11,7 @@ export const selectPost = (id: number) => {
     return createSelector(postsFeature.selectPostList, ( postList => postList.find(post => post.id === id)!))
 }
 
+export const selectIsLoading = createSelector(
+    postsFeature.selectIsLoading,
+    isloading => isloading
+)
