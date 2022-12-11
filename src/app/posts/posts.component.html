@@ -1,8 +1,15 @@
 <app-loader *ngIf="isLoading$ | async"></app-loader>
-
 <div class="posts" *ngIf="posts$ | async as posts">
+  <div class="btns">
+    <button (click)="showAll()">Show all</button>
+    <button (click)="sort()">Sort</button>
+    <button (click)="filterOddId()">Odd id</button>
+    <button (click)="filterEvenId()">Even id</button>
+    <button (click)="filterByTitle()">filterByTitle</button>
+  </div>
+  <input #input type="text" (input)="filterByInputValue(input.value)" />
   <h1>Posts</h1>
   <p *ngFor="let post of posts" class="post" (click)="postInfo(post.id)">
-    {{ post.title }}
+    {{ post.id }} {{ post.title }}
   </p>
 </div>

@@ -7,6 +7,7 @@ export const selectUsersList = createSelector(
   userList => userList
 );
 
+
 export const selectUser = (userId: number) => {
   return  createSelector(selectUsersList, ((userList) => userList.find(user => user.id === userId)!))
 }

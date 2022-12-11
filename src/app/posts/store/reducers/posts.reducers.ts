@@ -16,7 +16,16 @@ export const postsFeature = createFeature({
         }),
         on(PostsActions.getPostsActionsSuccess, (state, { posts }) => ({
             ...state, postList: posts, isLoading: false
-        }))
+        })),
+        // on(PostsActions.getSortedPostListActions, (state) => {
+        //     return { ...state, postList: [...state.postList].sort((a, b) => b.id - a.id) }
+        // }),
+        // on(PostsActions.getFilteredPostListByOddId, (state) => {
+        //     return { ...state, postList: state.postList.filter(({ id }) => id % 2 === 0)}
+        // }),
+        // on(PostsActions.getFilteredPostListByEvenId, (state) => {
+        //     return { ...state, postList: state.postList.filter(({ id }) => id % 2 !== 0)}
+        // })
     )
 })
 

@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 
 import { Post } from './models/post';
 import * as PostsActions from './store/actions/posts.actions';
-import { selectPostsList, selectIsLoading } from './store/selectors/posts.selectors';
+import { selectPostsList, selectIsLoading, selectOddList, selectEvenList, selectBytitleLengthList, selectPostsByInputValue, selectPostByGreatestId } from './store/selectors/posts.selectors';
 
 
 @Component({
@@ -25,6 +25,34 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(PostsActions.getPostsActions());    
+  }
+  
+  public sort(): void {
+    // this.store.dispatch(PostsActions.getSortedPostListActions())
+    this.posts$ = this.store.select(selectPostByGreatestId)
+  }
+
+  public showAll(): void {
+    this.store.dispatch(PostsActions.getPostsActions());  
+    this.posts$ = this.store.select(selectPostsList)
+  }
+
+  public filterOddId(): void {
+    this.posts$ = this.store.select(selectOddList)
+    // this.store.dispatch(PostsActions.getFilteredPostListByOddId())
+  }
+
+  public filterEvenId(): void {
+    this.posts$ = this.store.select(selectEvenList)
+    // this.store.dispatch(PostsActions.getFilteredPostListByEvenId())
+  }
+
+  public filterByInputValue(value: string): void {
+    this.posts$ = this.store.select(selectPostsByInputValue(value))
+  }
+
+  public filterByTitle(): void {
+    this.posts$ = this.store.select(selectBytitleLengthList)
   }
 
   public postInfo(postId: number): void {

@@ -1,11 +1,9 @@
-import { selectIsLoading } from './../store/selectors/posts.selectors';
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Subject, takeUntil, switchMap, Observable } from 'rxjs';
+import { Subject, takeUntil, switchMap } from 'rxjs';
 
-import { UsersState } from '././models/user';
 import * as UsersActions from './store/actions/users.actions';
 import { User } from './models/user';
 import { selectUser } from './store/selectors/users.selectors';
